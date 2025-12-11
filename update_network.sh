@@ -47,12 +47,12 @@ check_connection() {
 #installs network utilities not found in check_tools
 update() {
     install_cmd="sudo apt install -y"
-    echo "Attempting to install missing packages..\033[0m"
+    echo -e "\033[1;35mAttempting to install missing packages..\033[0m"
     if [[ -n "$missing" && $connected==1 ]]; then
         if $install_cmd $missing &> /dev/null; then
-            echo "Installation Successful"
+            echo -e "\033[1;35mInstallation Successful\033[0m"
         else
-            echo "Installation FAILED"
+            echo -e "\033[1;35mInstallation FAILED\033[0m"
         fi
     else
         echo -e "\033[1;35mAll recommended network tools are installed\033[0m"
